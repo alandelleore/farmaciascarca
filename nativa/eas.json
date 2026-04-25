@@ -1,0 +1,18 @@
+{
+  "cli": {
+    "version": ">= 13.0.0"
+  },
+  "build": {
+    "preview": {
+      "androidPackageSource": "remote",
+      "buildType": "apk"
+    },
+    "production": {
+      "androidPackageSource": "remote",
+      "buildType": "app-bundle"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

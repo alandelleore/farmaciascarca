@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Farmacias Carcarañá",
+    "slug": "farmacias-nativa",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#667eea"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.carcara.farmacias"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#667eea"
+      },
+      "package": "com.carcara.farmacias"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "farmacias-436a4"
+      }
+    }
+  }
+}

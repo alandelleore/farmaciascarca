@@ -1,0 +1,9 @@
+{
+  "name": "farmacias-carcarana",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix app",
+    "build": "npm run build --prefix app"
+  }
+}
