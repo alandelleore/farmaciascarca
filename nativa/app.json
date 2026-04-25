@@ -11,6 +11,12 @@
     },
     "android": {
       "package": "com.carcara.farmacias"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0ccb420c-85b9-40b8-99cc-f4561647aaec"
+      }
+    },
+    "owner": "alandelleore"
   }
 }
