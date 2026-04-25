@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { StyleSheet, View, ActivityIndicator, Text } from 'react-native';
 import { WebView } from 'react-native-webview';
 import * as SplashScreen from 'expo-splash-screen';
-import { Asset } from 'expo-asset';
-import * as FileSystem from 'expo-file-system';
 
 SplashScreen.preventAutoHideAsync();
 
 const CONFIG_FILE = 'https://raw.githubusercontent.com/alandelleore/farmacias-config/main/config.json';
-const DEFAULT_URL = 'https://farmacias-carcarana.vercel.app';
+const DEFAULT_URL = 'https://farmaciascarca-tau.vercel.app';
 
 interface Config {
   url: string;
@@ -32,7 +30,7 @@ export default function App() {
           setWebviewUrl(config.url);
         }
       }
-    } catch (e) {
+    } catch {
       console.log('Usando URL por defecto:', DEFAULT_URL);
     } finally {
       setIsLoading(false);
