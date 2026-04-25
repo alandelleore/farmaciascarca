@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -9,8 +9,7 @@ import {
   Alert,
   Chip,
   Stack,
-  Button,
-  Link as MuiLink
+  Button
 } from '@mui/material';
 import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
 import PhoneIcon from '@mui/icons-material/Phone';
