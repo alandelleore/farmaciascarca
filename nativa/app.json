@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "backgroundColor": "#667eea"
+      "backgroundColor": "#006D5C"
     },
     "android": {
       "package": "com.carcara.farmacias"

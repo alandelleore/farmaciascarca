@@ -4,8 +4,8 @@
   "description": "Consulta qué farmacia está de turno hoy en Carcarañá, Santa Fe",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#667eea",
-  "theme_color": "#667eea",
+  "background_color": "#006D5C",
+  "theme_color": "#006D5C",
   "orientation": "portrait",
   "icons": [
     {

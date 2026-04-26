@@ -24,7 +24,7 @@ const isNativeApp = () => {
   return userAgent.includes('wv') || userAgent.includes('WebView');
 };
 
-const APK_URL = '/farmacias.apk';
+const APK_URL = 'https://farmacias-436a4.web.app/farmacias.apk';
 
 function App() {
   const [farmacia, setFarmacia] = useState<Farmacia | null>(null);
@@ -87,7 +87,7 @@ function App() {
 
   if (loading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', bgcolor: '#667eea' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', bgcolor: '#006D5C' }}>
         <CircularProgress sx={{ color: 'white' }} />
       </Box>
     );
@@ -105,7 +105,7 @@ function App() {
     <Box
       sx={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        background: 'linear-gradient(135deg, #006D5C 0%, #004D40 100%)',
         py: 4,
         px: 2
       }}
@@ -126,7 +126,7 @@ function App() {
               <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
                 <Box
                   sx={{
-                    bgcolor: '#764ba2',
+                    bgcolor: '#006D5C',
                     borderRadius: '50%',
                     p: 2
                   }}
@@ -147,11 +147,11 @@ function App() {
                     month: 'long',
                     day: 'numeric'
                   })}
-                  sx={{ bgcolor: '#667eea', color: 'white' }}
+                  sx={{ bgcolor: '#006D5C', color: 'white' }}
                 />
               </Box>
 
-              <Typography variant="h4" component="h3" sx={{ textAlign: 'center', color: '#764ba2', mb: 3 }}>
+              <Typography variant="h4" component="h3" sx={{ textAlign: 'center', color: '#006D5C', mb: 3 }}>
                 {farmacia.nombre}
               </Typography>
 
@@ -199,7 +199,7 @@ function App() {
               onClick={handleDownload}
               sx={{
                 bgcolor: 'white',
-                color: '#764ba2',
+                color: '#006D5C',
                 fontWeight: 'bold',
                 py: 1.5,
                 '&:hover': {
