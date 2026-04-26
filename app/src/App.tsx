@@ -19,12 +19,22 @@ import { db } from './firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { Farmacia } from './types';
 
+const isNativeApp = () => {
+  const userAgent = navigator.userAgent || '';
+  return userAgent.includes('wv') || userAgent.includes('WebView');
+};
+
 const APK_URL = '/farmacias.apk';
 
 function App() {
   const [farmacia, setFarmacia] = useState<Farmacia | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showDownloadBtn, setShowDownloadBtn] = useState(true);
+
+  useEffect(() => {
+    setShowDownloadBtn(!isNativeApp());
+  }, []);
 
   useEffect(() => {
     const fetchTurnoHoy = async () => {
@@ -180,24 +190,26 @@ function App() {
         )}
 
         <Box sx={{ mt: 4 }}>
-          <Button
-            variant="contained"
-            fullWidth
-            size="large"
-            startIcon={<DownloadIcon />}
-            onClick={handleDownload}
-            sx={{
-              bgcolor: 'white',
-              color: '#764ba2',
-              fontWeight: 'bold',
-              py: 1.5,
-              '&:hover': {
-                bgcolor: '#f0f0f0'
-              }
-            }}
-          >
-            Descargar App
-          </Button>
+          {showDownloadBtn && (
+            <Button
+              variant="contained"
+              fullWidth
+              size="large"
+              startIcon={<DownloadIcon />}
+              onClick={handleDownload}
+              sx={{
+                bgcolor: 'white',
+                color: '#764ba2',
+                fontWeight: 'bold',
+                py: 1.5,
+                '&:hover': {
+                  bgcolor: '#f0f0f0'
+                }
+              }}
+            >
+              Descargar App
+            </Button>
+          )}
         </Box>
 
         <Typography variant="body2" sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.6)', mt: 4 }}>
