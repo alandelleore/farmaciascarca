@@ -5,38 +5,19 @@ import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
 
-const CONFIG_FILE = 'https://raw.githubusercontent.com/alandelleore/farmacias-config/main/config.json';
 const DEFAULT_URL = 'https://farmaciascarca-tau.vercel.app';
-
-interface Config {
-  url: string;
-}
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [webviewUrl, setWebviewUrl] = useState(DEFAULT_URL);
-  const [error, setError] = useState<string | null>(null);
+  const [webviewUrl] = useState(DEFAULT_URL);
 
   useEffect(() => {
-    loadConfig();
-  }, []);
-
-  const loadConfig = async () => {
-    try {
-      const response = await fetch(CONFIG_FILE);
-      if (response.ok) {
-        const config: Config = await response.json();
-        if (config.url) {
-          setWebviewUrl(config.url);
-        }
-      }
-    } catch {
-      console.log('Usando URL por defecto:', DEFAULT_URL);
-    } finally {
+    const timer = setTimeout(() => {
       setIsLoading(false);
-      await SplashScreen.hideAsync();
-    }
-  };
+      SplashScreen.hideAsync();
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (isLoading) {
     return (
@@ -54,11 +35,8 @@ export default function App() {
       <WebView
         source={{ uri: webviewUrl }}
         style={styles.webview}
-        onLoadStart={() => setIsLoading(true)}
-        onLoadEnd={() => setIsLoading(false)}
-        onError={(syntheticEvent) => {
-          setError(syntheticEvent.nativeEvent.description);
-        }}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
         startInLoadingState={true}
         renderLoading={() => (
           <View style={styles.loadingContainer}>
@@ -66,12 +44,6 @@ export default function App() {
           </View>
         )}
       />
-      {error && (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>Error al cargar la página</Text>
-          <Text style={styles.errorUrl}>{webviewUrl}</Text>
-        </View>
-      )}
     </View>
   );
 }
@@ -115,27 +87,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-  },
-  errorContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  errorText: {
-    fontSize: 16,
-    color: '#333',
-    textAlign: 'center',
-  },
-  errorUrl: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 10,
-    textAlign: 'center',
   },
 });

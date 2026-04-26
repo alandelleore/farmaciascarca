@@ -9,7 +9,7 @@
     "runtime": "nodejs20"
   },
   "hosting": {
-    "public": "frontend/dist",
+    "public": "app/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
