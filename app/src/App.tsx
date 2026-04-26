@@ -112,7 +112,7 @@ function App() {
     >
       <Container maxWidth="sm">
         <Box sx={{ textAlign: 'center', mb: 4 }}>
-          <Typography variant="h3" component="h1" sx={{ color: 'white', fontWeight: 'bold' }}>
+          <Typography variant="h4" component="h1" sx={{ color: 'white', fontWeight: 'bold', fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
             Farmacias de Turno
           </Typography>
           <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.8)', mt: 1 }}>
